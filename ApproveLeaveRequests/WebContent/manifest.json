@@ -1,0 +1,158 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "mkbs.approveleaverequests",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+        "dataSources": {
+            "mainService": {
+                "uri": "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_GET_LEAVE_REQUESTS_SRV/",
+                "type": "OData"
+
+            }
+        }
+    },
+    
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "images/zlr.png",
+            "favIcon": "images/zlr.ico",
+            "phone": "images/zlr.png",
+            "phone@2": "images/zlr.ico",
+            "tablet": "images/zlr.png",
+            "tablet@2": "images/zlr.ico"
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_belize",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+    	"rootView": {
+			"viewName": "mkbs.approveleaverequests.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+        "resources": {
+            "css": [
+                {
+                    "uri": "",
+                    "id": ""
+                }
+            ]
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.m": { 
+                	"minVersion": "1.30"
+                },
+                "sap.ui.core": {
+					"minVersion": "1.30.0"
+				},
+                "sap.ui.layout": { 
+                	"minVersion": "1.30"
+                },
+                "sap.ui.unified": {
+                	"minVersion": "1.30"
+                }
+            },
+            "components": {
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "absence": {
+                "dataSource": "mainService",
+                "preload": false
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+       	"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "mkbs.approveleaverequests.view",
+             	"controlId": "rootControl",
+             	"controlAggregation": "pages",
+				"transition": "show"
+			},
+			"routes": [
+				{
+				"pattern": "",
+				"name": "Login",
+				"target": "login"
+				},
+				{
+				"pattern": "master",
+				"name": "Master",
+				"target": ["notFound", "master"]
+				},
+				{
+				"pattern": "request/{requestId}",
+				"name": "RequestDetails",
+				"target": ["master", "detail"]
+				}
+			],
+			"targets": {
+				"login": {
+					"viewPath": "mkbs.approveleaverequests.view",
+					"viewName": "Login",
+					"viewLevel": 0,
+					"controlId": "rootControl",
+					"controlAggregation": "pages", 
+					"viewId": "login"
+				},
+				"splitAppContainer": {
+	             	"viewPath": "mkbs.approveleaverequests.view",
+	                "viewName": "SplitApp"
+             	},
+				"master": {
+					"viewPath": "mkbs.approveleaverequests.view",
+					"parent" : "splitAppContainer",
+					"viewName": "Master",
+					"controlAggregation": "masterPages",
+					"controlId": "masterDetailContainer",
+					"viewLevel": 1
+				},
+				"detail": {
+					"viewPath": "mkbs.approveleaverequests.view",
+					"parent" : "splitAppContainer",
+					"viewName": "Details",
+					"controlAggregation": "detailPages",
+					"controlId": "masterDetailContainer",
+					"viewLevel": 2
+				},
+				"notFound": {
+					"viewPath": "mkbs.approveleaverequests.view",
+					"parent" : "splitAppContainer",
+					"viewName": "NotFound",
+					"viewId": "notFound",
+					"controlAggregation": "detailPages",
+					"controlId": "masterDetailContainer",
+					"viewLevel": 2
+				}
+			}
+			
+		}
+	}
+
+}

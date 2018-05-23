@@ -1,0 +1,99 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="mkbs.approveleaverequests.view.Details" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page 
+		id="pageRequestsDetail" 
+		title="{i18n>DetailPageTitle}"
+		showNavButton="{device>/system/phone}" 
+		navButtonPress="handleNavButtonPress" >
+		<BusyDialog id="BusyDialog" />
+		<ObjectHeader 
+			id="requestDetailHeader"
+			title="{ 
+				wrapping: 'true'
+			}"
+			responsive="false"
+			number=""
+			numberUnit="">
+			<attributes>
+				<ObjectAttribute 
+					id="userPernrText" 
+					title="{i18n>EmployeeNumberTitle}"
+					text="" />
+				<ObjectAttribute
+					id="dateRangeText"
+					text="" />
+			</attributes>
+		</ObjectHeader>
+		<IconTabBar
+			id="idIconTabBarInlineMode"
+			class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter
+					id="infoTab"
+					icon="sap-icon://hint">
+			        <f:SimpleForm
+			        	width="auto"
+			        	class="sapUiResponsiveMargin"
+			        	layout="ResponsiveGridLayout"
+			            labelSpanL="3"
+			            labelSpanM="3"
+			            emptySpanL="4"
+			            emptySpanM="4"
+			            columnsL="1"
+			            columnsM="1">
+						<f:content>
+							<Label text="{i18n>DaysLeft}" />	
+							<Text
+								id="balanceValue"  
+								design="Bold" />																
+							<Label text="{i18n>RequestDate}" />				
+							<Text 
+								id="requestDate"  
+								design="Bold" />
+							<Label text="{i18n>AbsenceType}" />			
+							<Text 
+								id="leaveTypeValue"  
+								design="Bold" />				
+						</f:content>			
+					</f:SimpleForm>					
+				</IconTabFilter>
+				<IconTabFilter
+					id="commentTab"
+					icon="sap-icon://comment"
+					class="sapUiResponsiveContentPadding">
+					<l:HorizontalLayout class="sapUiSmallMargin" >			
+						<Text
+							id="commentValue"  
+							design="Bold" />
+					</l:HorizontalLayout>																		
+				</IconTabFilter>
+			</items>
+		</IconTabBar>		
+		<footer>
+			<Bar>
+				<contentRight>
+           			<Button 
+           				id="approveButton"
+           				icon="sap-icon://accept" 
+           				text="{i18n>ApproveButton}" 
+           				type="Emphasized" 
+           				witdth="220px"
+           				press="btnSendPress" />
+           			<Button 
+						id="rejectButton"
+						icon="sap-icon://decline" 
+						text="{i18n>RejectButton}" 
+						type="Reject" 
+						witdth="220px"
+						press="btnRejectPress" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

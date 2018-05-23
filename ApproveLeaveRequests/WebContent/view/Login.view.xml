@@ -1,0 +1,67 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	controllerName="mkbs.approveleaverequests.view.Login" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>LoginPageTitle}">
+		<l:VerticalLayout
+			width="100%" >
+			<l:content>
+				<Panel>
+					<FlexBox
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>
+							<Label 
+								id="userText"
+								text="{i18n>UserText}" 
+								design="Bold" />
+                  			<Input 
+                  				id="userID" 
+                  				type="Text" 
+                  				submit="onUserSubmit"
+                  				width="270px"
+                  				liveChange="onUserChange" />
+                  			<Label text=" " />
+                  			<Label 
+                  				id="passwordText"
+                  				text="{i18n>PasswordText}" 
+                  				design="Bold" />
+                  			<Input 
+                  				id="passID" 
+                  				type="Password"  
+                  				submit="onPasswordSubmit"
+                  				width="270px" />
+                  			<Label text=" " />
+                  			<Button 
+                  				id="loginButton"
+                  				icon="sap-icon://sys-enter" 
+                  				text="{i18n>LoginBtn}" 
+                  				type="Emphasized" 
+                  				witdth="200px"
+                  				press="btnLogin" />
+                  			<Label text=" " />
+                  			<Text 
+                  				text="{i18n>NoticeText}"
+                  				textAlign="Center"
+                  				width="330px" />
+                  			<Image src="images/mk_group.png" height="150px" ></Image>
+						</items>
+					</FlexBox>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Label
+						id="txtCompanyName" 
+                  		text="{i18n>MKBS}" />
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
