@@ -1,0 +1,61 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	controllerName="mkbs.leaverequest.view.ChangePass" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page 
+		id="pageChangePassword" >
+		<customHeader>
+			<Bar>
+				<contentLeft>
+           			<Button 
+           				id="backButton"
+           				icon="sap-icon://nav-back" 
+           				press="navigationBack" />
+				</contentLeft>
+				<contentMiddle>
+					<Label text="{i18n>ChangePassTitle}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<l:VerticalLayout
+			width="100%" >
+			<l:content>
+				<Panel>
+
+					<FlexBox
+						direction="Column"
+						alignItems="Center"
+						justifyContent="Center">
+						<items>
+                  			<Label 
+                  				id="changePasswordText"
+                  				text="{i18n>ChangePasswordText}" 
+                  				design="Bold" />
+                  			<Input 
+                  				id="changePassID" 
+                  				type="Password" 
+                  				submit="onChangePasswordSubmit"
+                  				width="270px" />
+                  			<Label text=" " />
+                  			<Button 
+                  				id="loginButtonCP"
+                  				icon="sap-icon://sys-enter" 
+                  				text="{i18n>ChangePassBtn}" 
+                  				type="Emphasized" 
+                  				witdth="200px"
+                  				press="btnLoginCP" />
+						</items>
+					</FlexBox>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+		<footer>
+			<Bar>
+
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

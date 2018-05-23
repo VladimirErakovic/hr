@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+		
+		<title>Zahtev za odsustvo</title>
+		
+		<link rel="icon" href="images/zlr.ico"/>
+
+		<script id="sap-ui-bootstrap"
+				src="https://sapui5.hana.ondemand.com/resources/sap-ui-cachebuster/sap-ui-core.js"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-compatVersion="edge"
+				data-sap-ui-frameOptions="trusted"
+				data-sap-ui-preload="async"
+				data-sap-ui-theme="sap_belize"
+				data-sap-ui-resourceroots='{"mkbs.leaverequest": "./"}'
+				data-sap-ui-appCacheBuster="./">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme  sap_belize -->
+		<!-- Application Cache Buster and Cache Buster is not the same.. -->
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						homeIcon: {
+							'favicon':'images/zlr.ico',
+							'phone':'images/zlr.png',
+							'tablet':'images/zlr.png',
+							'precomposed': false // whether the home icons already have some glare effect (for iOS)
+						},
+						async: true,
+						height : "100%",
+						name : "mkbs.leaverequest"
+					})
+				}).placeAt("content");
+			});
+		</script>
+
+	</head>
+	<!-- UI Content -->
+	<body class="sapUiBody" id="content">
+	</body>
+</html>

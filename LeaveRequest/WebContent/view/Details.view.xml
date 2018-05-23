@@ -1,0 +1,88 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="mkbs.leaverequest.view.Details" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page 
+		id="pageHistoryDetail" 
+		title="{i18n>DetailPageTitle}"
+		showNavButton="{device>/system/phone}" 
+		navButtonPress="handleNavButtonPress" >
+		<ObjectHeader 
+			id="requestDetailHeader"
+			title="{ 
+				wrapping: 'true'
+			}"
+			responsive="false"
+			number=""
+			numberUnit="">
+			<statuses>
+				<ObjectStatus
+					id="reqStatus"
+					text="Poslata"
+					state="None" />
+			</statuses>
+			<attributes>
+				<ObjectAttribute
+					id="dateRangeText"
+					text="" />
+				<ObjectAttribute 
+					id="sendDate" 
+					title="Datum slanja"
+					text="" />
+				<ObjectAttribute 
+					id="userComment" 
+					title="Komentar"
+					text="" />
+			</attributes>
+		</ObjectHeader>
+		<IconTabBar
+			id="idIconTabBarInlineMode"
+			class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter
+					id="commentTab"
+					icon="sap-icon://comment"
+					class="sapUiResponsiveContentPadding">
+			        <f:SimpleForm
+			        	width="auto"
+			        	class="sapUiResponsiveMargin"
+			        	layout="ResponsiveGridLayout"
+			            labelSpanL="3"
+			            labelSpanM="3"
+			            emptySpanL="4"
+			            emptySpanM="4"
+			            columnsL="1"
+			            columnsM="1">
+						<f:content>
+							<Label id="bossNameLabel" text="" />	
+							<Text
+								id="commentValue"  
+								design="Bold" />	
+												
+							<Label id="dateLabel" text="{i18n>CommentDate}" />				
+							<Text 
+								id="commentDate"  
+								design="Bold" />
+						</f:content>			
+					</f:SimpleForm>												
+				</IconTabFilter>
+			</items>
+		</IconTabBar>		
+		<footer>
+			<Bar>
+				<contentRight>
+           			<Button 
+           				id="withdrawButton"
+           				text="{i18n>WithdrawButton}" 
+           				type="Emphasized" 
+           				witdth="220px"
+           				press="btnWithdraw" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

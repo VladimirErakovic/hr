@@ -1,0 +1,4 @@
+<View 
+	xmlns="sap.m" >
+	<SplitApp id="masterDetailContainer" />
+</View>

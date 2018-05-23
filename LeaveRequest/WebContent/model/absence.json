@@ -1,0 +1,16 @@
+{
+"AbsenceCollection": [
+	{
+		"key": "0100",
+		"text": "Godišnji odmor"
+	},
+	{
+		"key": "0110",
+		"text": "Verski praznik"
+	},
+	{
+		"key": "0210",
+		"text": "Plaćeno odsustvo"
+	}
+	]
+}

@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="mkbs.leaverequest.view.NotFound"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page
+	    id="notFoundPage"
+	    title=""
+	    class="sapUiFioriObjectPage" 
+	    showNavButton="{device>/system/phone}"
+		navButtonPress="handleNavButtonPress" >
+		<MessagePage 
+			id="messagePage"
+			text="{i18n>NotFoundText}"
+			description="{i18n>NotFoundDesc}"
+			showHeader="false">
+		</MessagePage>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

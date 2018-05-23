@@ -1,0 +1,44 @@
+{
+"PaidLeaveCollection": [
+	{
+		"key": "0100",
+		"text": " "
+	},
+	{
+		"key": "0102",
+		"text": "Sklapanje braka"
+	},
+	{
+		"key": "0103",
+		"text": "Porođaj supruge"
+	},
+	{
+		"key": "0104",
+		"text": "Teža bolest užeg člana porodice"
+	},
+	{
+		"key": "0105",
+		"text": "Selidba isto mesto"
+	},
+	{
+		"key": "0106",
+		"text": "Selidba različito mesto"
+	},
+	{
+		"key": "0107",
+		"text": "Polaganje ispita"
+	},
+	{
+		"key": "0108",
+		"text": "Elementarna nepogoda"
+	},
+	{
+		"key": "0109",
+		"text": "Smrt užeg člana porodice"
+	},
+	{
+		"key": "0111",
+		"text": "Dobrovoljno davanje krvi"
+	}	
+	]
+}

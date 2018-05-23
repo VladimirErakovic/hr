@@ -1,0 +1,156 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	controllerName="mkbs.leaverequest.view.Main" 
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true">
+	<Page 
+		title="">
+		<BusyDialog id="BusyDialog" />
+		<customHeader>
+			<Bar>
+				<contentLeft>
+           			<Button 
+           				id="dummyButton"
+           				width="1px"
+           				press="btnDummy" />
+				</contentLeft>
+				<contentMiddle>
+					<Label id="pageTitleUserName" text="" />
+				</contentMiddle>
+				<contentRight>
+           			<Button 
+           				id="logoutButton"
+           				icon="sap-icon://log" 
+           				press="btnLogOut" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<l:VerticalLayout
+			width="100%" >
+			<l:content>
+		  		<Panel>
+					<FlexBox
+						direction="Column"
+						alignItems="Center"
+						alignContent="Center">
+						<items>						  	
+							<Select
+								id="idAbsenceComboBox"
+								selectedKey="0100"
+								items="{/AbsenceCollection}"
+								change="onAbsenceTypeChange">
+								<core:Item key="{key}" text="{text}" />
+							</Select>															
+						</items>
+					</FlexBox>					
+				</Panel>					
+			</l:content>
+		</l:VerticalLayout>
+        <f:SimpleForm
+            editable="true"
+            singleContainerFullSize="true"
+            layout="ResponsiveGridLayout"
+            backgroundDesign="Solid"
+            labelSpanL="4"
+            labelSpanM="2"
+            labelSpanS="12"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="1"
+            columnsL="2"
+            columnsM="2">
+			<f:content>
+				<u:Calendar 
+					id="absenceCalendar"
+					months="2"
+					firstDayOfWeek="1"
+					select="handleCalendarSelect"
+					intervalSelection="true" />	
+				<l:VerticalLayout>	
+					<u:CalendarLegend
+						id="calendarLegendId" />
+					<Label text=" " />
+					<Label id="paidLeaveTypesLabel" text="{i18n>PaidLeaveTypes}" labelFor="idPaidLeaveComboBox" visible="false"/>
+					<Select
+						id="idPaidLeaveComboBox"
+						selectedKey="0100"
+						visible="false"
+						items="{/PaidLeaveCollection}"
+						change="onPaidLeaveTypeChange">
+						<core:Item key="{key}" text="{text}" />
+					</Select>	
+					<Label id="emptyLabel" text=" " visible="false"/>
+					<Label id="absenceHoursLabel" text="{i18n>HoursOfAbsence}" labelFor="idHoursOfAbsence" visible="false"/>
+					<Input 
+						id="idHoursOfAbsence" 
+						type="Text"
+						value=""
+						visible="false"
+						width="100px" 
+						maxLength="10"
+						change="onHoursChange"/>					
+					<Label id="absenceDaysRemainLabel" text="{i18n>RemainingQuota}" labelFor="idDaysRemain"/>
+					<Input 
+						id="idDaysRemain" 
+						enabled="false" 
+						type="Number"
+						value="0"
+						width="100px" 
+						maxLength="10"
+						change="onDaysRemain"/>
+					<Label text=" " />
+					<Label id="approverLabel" text="{i18n>ApprovedBy}" labelFor="idManager"/>
+					<Input 
+						id="idManager"  
+						enabled="false"
+						type="Text"
+						value=""
+						width="250px" 
+						maxLength="30"/>
+					<Label text=" " />
+					<Label id="noteLabel" text="{i18n>Notice}" labelFor="idComment"/>
+					<TextArea 
+						id="idComment"  
+						rows="4"
+						width="330px" 
+						maxLength="256"
+						wrapping="Soft"/>
+				</l:VerticalLayout>
+			</f:content>			
+		</f:SimpleForm>					
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button 
+						id="btnChangePass"
+						icon="sap-icon://edit"
+						press="btnChangePass" />
+					<Button 
+						id="btnHistory"
+						icon="sap-icon://history"
+						text="{i18n>HistoryButton}"
+						press="btnHistory" />
+           			<Button 
+           				id="btnSend"
+           				icon="sap-icon://accept" 
+           				text="{i18n>SendButton}" 
+           				type="Emphasized" 
+           				witdth="220px"
+           				press="btnSendPress" />
+           			<Button 
+						id="btnReset"
+						icon="sap-icon://decline" 
+						text="{i18n>ResetButon}" 
+						type="Reject" 
+						witdth="220px"
+						press="btnResetPress" />			
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
