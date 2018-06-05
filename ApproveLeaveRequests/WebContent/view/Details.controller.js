@@ -32,7 +32,7 @@ sap.ui.define([
 				
 				busyDialog  = oView.byId("BusyDialog");
 				
-		        oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
+		        	oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
 		        
 				user = oBundle.getText("GatewayUsername");
 				pass = oBundle.getText("GatewayPassword");  
@@ -41,8 +41,8 @@ sap.ui.define([
 				sysUsername = oJQueryStorage.get("alr_sys_uname");
 				managerPernr = oJQueryStorage.get("alr_user_pernr");
 		        
-			    this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			    this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
+			    	this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			    	this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
 		        
 
 			},
@@ -61,7 +61,7 @@ sap.ui.define([
 					var bindingContext = oView.getBindingContext();
 					requestId = oEvent.getParameter("arguments").requestId;
 					
-					var urlDetails = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_GET_LEAVE_REQUESTS_SRV/";
+					var urlDetails = "proxy/https/***/sap/opu/odata/SAP/ZHR_GET_LEAVE_REQUESTS_SRV/";
 					var oDetailsModel = new sap.ui.model.odata.ODataModel(urlDetails, true, user, pass); 
 					
 					oDetailsModel.read("/EtDetailsSet(ImReqid='" + requestId + "')", null, null, false, 
@@ -196,7 +196,7 @@ sap.ui.define([
 				busyDialog.setVisible(true);
 				busyDialog.open();
 				
-				var urlAbsence = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_ABSENCE_CREATE_SRV/";
+				var urlAbsence = "proxy/https/***/sap/opu/odata/SAP/ZHR_ABSENCE_CREATE_SRV/";
 				var oAbsenceModel = new sap.ui.model.odata.ODataModel(urlAbsence, true, user, pass);
 				
 				oAbsenceModel.read("/EtAbsenceCreateSet(ImPernr='" + userPernr + "',ImAbtyp='" + absenceType + "',ImBegda=datetime'" + beginDate 
@@ -340,7 +340,7 @@ sap.ui.define([
 				var rejectText = sap.ui.getCore().byId('rejectDialogTextarea').getValue();
 				var rejectTextEncoded = encodeURIComponent(rejectText);
 				
-				var urlAbsence = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_ABSENCE_CREATE_SRV/";
+				var urlAbsence = "proxy/https/***/sap/opu/odata/SAP/ZHR_ABSENCE_CREATE_SRV/";
 				var oAbsenceModel = new sap.ui.model.odata.ODataModel(urlAbsence, true, user, pass); 
 				
 				oAbsenceModel.read("/EtAbsenceRejectSet(ImUname='" + sysUsername + "',ImMngpr='" + managerPernr
