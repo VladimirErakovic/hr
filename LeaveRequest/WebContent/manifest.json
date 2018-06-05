@@ -12,7 +12,7 @@
 		"description": "{{appDescription}}",
         "dataSources": {
             "mainService": {
-                "uri": "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_GET_LR_HISTORY_SRV/",
+                "uri": "proxy/https/***/sap/opu/odata/SAP/ZHR_GET_LR_HISTORY_SRV/",
                 "type": "OData"
 
             }
