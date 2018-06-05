@@ -19,11 +19,11 @@ sap.ui.define([
 			loginUserId = null;
 			loginPassword = null;
 			
-		    oJQueryStorageLocal = jQuery.sap.storage(jQuery.sap.storage.Type.local); 
-		    loginUserId = oJQueryStorageLocal.get("login_username");
-		    loginPassword = oJQueryStorageLocal.get("login_password");
+		    	oJQueryStorageLocal = jQuery.sap.storage(jQuery.sap.storage.Type.local); 
+		    	loginUserId = oJQueryStorageLocal.get("login_username");
+		    	loginPassword = oJQueryStorageLocal.get("login_password");
 
-	        oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
+	        	oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
 	 
 		},
 		
@@ -41,7 +41,7 @@ sap.ui.define([
 			var param1 = oBundle.getText("GatewayUsername");
 			var param2 = oBundle.getText("GatewayPassword");
 			
-			var urlLogin = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_ABSENCE_LOGIN_SRV/";
+			var urlLogin = "proxy/https/***/sap/opu/odata/SAP/ZHR_ABSENCE_LOGIN_SRV/";
 			var oUserModel = new sap.ui.model.odata.ODataModel(urlLogin, true, param1, param2); 
 			
 			var oView = this.getView();
