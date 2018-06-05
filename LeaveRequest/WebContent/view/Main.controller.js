@@ -28,9 +28,9 @@ sap.ui.define([
 			
 			that = this;
 			
-	        oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
+	        	oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
 	        
-	        oView = this.getView();
+	        	oView = this.getView();
 	        
 			user = oBundle.getText("GatewayUsername");
 			pass = oBundle.getText("GatewayPassword");        
@@ -43,8 +43,8 @@ sap.ui.define([
 			var oPaidLeaveModel = new JSONModel("model/paid_leave.json");
 			oView.byId("idPaidLeaveComboBox").setModel(oPaidLeaveModel);
 			
-		    this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-		    this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
+		    	this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+		    	this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
 	 
 		},
 		
@@ -90,7 +90,7 @@ sap.ui.define([
 				}));
 				
 				
-				var urlTimeQuota = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_REMAINING_TIMEQUOTA_SRV/";
+				var urlTimeQuota = "proxy/https/***/sap/opu/odata/SAP/ZHR_REMAINING_TIMEQUOTA_SRV/";
 				var oTimeQuota = new sap.ui.model.odata.ODataModel(urlTimeQuota, true, user, pass); 
 				
 				oTimeQuota.read("/EtTimeQuotaSet(ImPernr='" + userPernr + "')", null, null, false, 
@@ -170,18 +170,16 @@ sap.ui.define([
 			var startDate, startDateDisplay;
 			var endDate, endDateDisplay;
 			
-			var urlSendRequest = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_ABSENCE_REQUEST_SRV/";
+			var urlSendRequest = "proxy/https/***/sap/opu/odata/SAP/ZHR_ABSENCE_REQUEST_SRV/";
 			var oRequestModel = new sap.ui.model.odata.ODataModel(urlSendRequest, true, user, pass); 
 			
 			var comment = oView.byId("idComment").getValue();
 			var commentEncoded = encodeURIComponent(comment);
-			//console.log(comment.length);
 
 			var hoursOfAbsence = oView.byId("idHoursOfAbsence").getValue();
-			//hoursOfAbsence = hoursOfAbsence.replace('.','');
 			hoursOfAbsence = hoursOfAbsence.replace(',','.');
-	        var number = Number(hoursOfAbsence);  
-	        var hours = parseFloat(number).toFixed(2);
+	        	var number = Number(hoursOfAbsence);  
+	        	var hours = parseFloat(number).toFixed(2);
 			var hoursFloat = hours + "d";
 			
 			if (absenceType === "9999") {
@@ -200,8 +198,6 @@ sap.ui.define([
 			if (absenceType === "0210") {
 				var paidLeaveType = oView.byId("idPaidLeaveComboBox").getSelectedKey();
 				if (paidLeaveType === "0100") {
-					//absenceType = paidLeaveType;
-					//absenceTypeText = oView.byId("idPaidLeaveComboBox").getSelectedItem().getText();
 					// Odaberite vrstu plaćenog odsustva
 					MessageToast.show(oBundle.getText("NoPaidLeaveChoosed"));
 					return;
