@@ -18,7 +18,7 @@ sap.ui.define([
 				
 				that = this;
 				
-		        var oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
+		        	var oBundle = jQuery.sap.resources({url: "i18n/i18n.properties"});
 				
 				user = oBundle.getText("GatewayUsername");
 				pass = oBundle.getText("GatewayPassword");
@@ -35,7 +35,7 @@ sap.ui.define([
 											
 				var oView = this.getView().byId("requestList");	
 				
-				var url = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_GET_LEAVE_REQUESTS_SRV/";
+				var url = "proxy/https/***/sap/opu/odata/SAP/ZHR_GET_LEAVE_REQUESTS_SRV/";
 				var oModel = new sap.ui.model.odata.ODataModel(url, false, user, pass);
 				sap.ui.getCore().setModel(oModel); // for refreshing model from details
 				oView.setModel(oModel);
@@ -100,8 +100,8 @@ sap.ui.define([
 				
 				setTimeout(jQuery.proxy(function () {
 				
-					var FilterOperator = sap.ui.model.FilterOperator;
-					var filters = [new sap.ui.model.Filter("Mngpr", FilterOperator.EQ, userPernr)]
+				var FilterOperator = sap.ui.model.FilterOperator;
+				var filters = [new sap.ui.model.Filter("Mngpr", FilterOperator.EQ, userPernr)]
 					
 			        var oBinding = this.byId("requestList").getBinding("items");
 			        oBinding.filter(filters);
