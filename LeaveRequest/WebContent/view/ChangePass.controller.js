@@ -31,7 +31,7 @@ sap.ui.define([
 			var oView = this.getView();
 			var newPass = oView.byId("changePassID").valueOf().getValue();
 			
-			var urlChangePass = "proxy/https/sapgw.mk-group.org:42080/sap/opu/odata/SAP/ZHR_ABSENCE_LOGIN_SRV/";
+			var urlChangePass = "proxy/https/***/sap/opu/odata/SAP/ZHR_ABSENCE_LOGIN_SRV/";
 			var oChangePassModel = new sap.ui.model.odata.ODataModel(urlChangePass, true, param1, param2);
 			
 			oChangePassModel.read("/ChangePassSet(ImPernr='" + userPernr + "',ImPassw='" + newPass + "')", null, null, false, 
